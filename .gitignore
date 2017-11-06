@@ -1,3 +1,6 @@
+# Secrets.js file
+secrets.js
+
 # Logs
 logs
 *.log
@@ -56,6 +59,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-# Ignore the download_avatars.js file
-download_avatars.js
