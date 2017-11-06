@@ -4,8 +4,8 @@ console.log("Welcome to the GitHub Avatar Downloader!\n");
 
 /**
  * [getRepoContributors GETs all the contributors of a GitHub repo]
- * @param  {[type]}   repoOwner [description]
- * @param  {[type]}   repoName  [description]
+ * @param  {[String]}   repoOwner [Name of user who owns the repo]
+ * @param  {[String]}   repoName  [Name of the Repo]
  * @param  {Function} cb        [Callback function to handle the asynchronous nature of results
  *                               that are returned]
  * @return {[type]}             [description]
