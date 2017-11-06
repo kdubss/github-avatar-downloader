@@ -15,6 +15,7 @@ In doing so, you will learn about how to break down larger problems into smaller
 <code>
   node download_avatars.js jquery jquery
 </code>
+<br>
 <p>Any valid repo-owner + repo combination can be used, such as this:</p>
 <code>
   node download_avatars.js nodejs node
