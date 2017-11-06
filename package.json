@@ -1,0 +1,15 @@
+{
+  "name": "github-avatar-downloader",
+  "version": "1.0.0",
+  "description": "## Goal In this project you'll build a command-line <code>HTTP</code> client that will request the avatars for all contributers to a given project on GitHub, and download them to disk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
