@@ -56,3 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Ignore the download_avatars.js file
+download_avatars.js
