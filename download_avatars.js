@@ -28,12 +28,37 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 
     for (var i = 0; i < repos.length; i++) {
-      console.log(repos[i].avatar_url);
+      // console.log(repos[i].avatar_url);
+      downloadImageByURL(repos[i].avatar_url, "./avatar_imgs/" + repos[i].login + ".jpg");
     }
     // cb(err, body);
   });
 
-}
+};
+
+/**
+ * [downloadImageByURL Downloads the avatar image from a url that's passed, and saves that image
+ *  (in .jpg) into the directory specified by filePath]
+ * @param  {[String]} url      [Avatar URL]
+ * @param  {[String]} filePath [Location where all avatar images are saved]
+ * @return {[Image]}           [Avatar jpg image downloaded, and saved to the path specified by
+ *                              filePath]
+ */
+function downloadImageByURL(url, filePath) {
+  // ...
+  const request = require("request");
+  const fs = require("fs");
+
+  request.get(url)
+         .on("error", function(err) {
+          throw err;
+         })
+         .on("response", function(response) {
+          console.log(response.statusCode);
+          console.log(response.statusMessage);
+         })
+         .pipe(fs.createWriteStream(filePath));
+};
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   console.log("Errors", err);
