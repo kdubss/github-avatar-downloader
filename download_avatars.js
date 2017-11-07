@@ -24,14 +24,11 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
   request(options, function(err, result, body) {
     const repos = JSON.parse(body);
-    // const avatarURLs
-
 
     for (var i = 0; i < repos.length; i++) {
       // console.log(repos[i].avatar_url);
       downloadImageByURL(repos[i].avatar_url, "./avatar_imgs/" + repos[i].login + ".jpg");
     }
-    // cb(err, body);
   });
 
 };
