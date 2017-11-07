@@ -12,17 +12,25 @@ console.log("Welcome to the GitHub Avatar Downloader!\n");
  */
 function getRepoContributors(repoOwner, repoName, cb) {
 
-  const secret = require("./secrets");
+  const secrets = require("./secrets");
   const options = {
-    url: "https://api.github.com/repos" + repoOwner + "/" + repoName + "/contributors",
+    url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
+    // url: "https://api.github.com/user/repos",
     headers: {
-      "User-Agent": "request"
-      "Authorization": secret
+      "User-Agent": "request",
+      Authorization: "token " + secrets.GITHUB_TOKEN
     }
   };
 
   request(options, function(err, result, body) {
-    cb(err, body);
+    const repos = JSON.parse(body);
+    // const avatarURLs
+
+
+    for (var i = 0; i < repos.length; i++) {
+      console.log(repos[i].avatar_url);
+    }
+    // cb(err, body);
   });
 
 }
