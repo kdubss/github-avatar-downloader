@@ -1,13 +1,18 @@
 const request = require("request");
 
+const args = process.argv.slice(2);
+
+repoOwner = args[0];
+repoName = args[1];
+
 console.log("Welcome to the GitHub Avatar Downloader!\n");
 
 /**
  * [getRepoContributors GETs all the contributors of a GitHub repo]
  * @param  {[String]}   repoOwner [Name of user who owns the repo]
  * @param  {[String]}   repoName  [Name of the Repo]
- * @param  {Function} cb        [Callback function to handle the asynchronous nature of results
- *                               that are returned]
+ * @param  {Function}   cb        [Callback function to handle the asynchronous nature of results
+ *                                 that are returned]
  * @return {[type]}             [description]
  */
 function getRepoContributors(repoOwner, repoName, cb) {
@@ -51,13 +56,14 @@ function downloadImageByURL(url, filePath) {
           throw err;
          })
          .on("response", function(response) {
+          // Prints out status of each download
           console.log(response.statusCode);
           console.log(response.statusMessage);
          })
          .pipe(fs.createWriteStream(filePath));
 };
 
-getRepoContributors("jquery", "jquery", function(err, result) {
+getRepoContributors(repoOwner, repoName, function(err, result) {
   console.log("Errors", err);
   console.log("Result", result);
 });
