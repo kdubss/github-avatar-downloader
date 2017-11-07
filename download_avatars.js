@@ -25,7 +25,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
     console.log("Please enter 1st, the repo owner then 2, the repo name!\n");
 
-  }
+  } else {
 
   const options = {
 
@@ -36,7 +36,9 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
     }
 
-  };
+  }
+
+};
 
   request(options, function(err, result, body) {
 
@@ -64,13 +66,13 @@ function downloadImageByURL(url, filePath) {
 
   request.get(url)
          .on("error", function(err) {
-          throw err;
+            throw err;
          })
          .on("response", function(response) {
-          // Prints out status of each download
-          console.log("Status of avatar-url to download:")
-          console.log(response.statusCode);
-          console.log(response.statusMessage, "\n");
+            // Prints out status of each download
+            console.log("Status of avatar-url to download:")
+            console.log(response.statusCode);
+            console.log(response.statusMessage, "\n");
          })
          .pipe(fs.createWriteStream(filePath));
 
